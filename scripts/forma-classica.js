@@ -4,6 +4,12 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 let highScore = 0;
+let totalScore = 0;
+let translation = false;
+
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
 
 const modify = function () {
   document.querySelector('body').style.backgroundColor = '#60b347';
@@ -33,8 +39,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else if (highScore >= score) {
       document.querySelector('.highscore').textContent = highScore;
     }
-    document.querySelector('.totalScore').textContent = totalScore =
-      highScore + score;
+    document.querySelector('.totalScore').textContent = totalScore += score;
 
     //When guess is to high
   } else if (guess > secretNumber) {
@@ -63,7 +68,11 @@ document.querySelector('.check').addEventListener('click', function () {
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  document.querySelector('.message').textContent = 'Start guessing...';
+  if (translation == false) {
+    displayMessage('Start guessing...');
+  } else {
+    displayMessage('Comece a adivinhar');
+  }
   document.querySelector('.score').textContent = score;
   document.querySelector('.guess').value = '';
   document.querySelector('.number').textContent = '?';

@@ -5,6 +5,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 let totalScore = 0;
+let translation = false;
 
 const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
@@ -32,17 +33,23 @@ document.querySelector('.check').addEventListener('click', function () {
     displayMessage('Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
     modify();
-
     if (highScore < score) {
       document.querySelector('.highscore').textContent = highScore = score;
     } else if (highScore >= score) {
       document.querySelector('.highscore').textContent = highScore;
     }
-    document.querySelector('.totalScore').textContent = totalScore =
-      highScore + score;
+    document.querySelector('.totalScore').textContent = totalScore += score;
+
+    //When the guess is low or high
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      displayMessage(guess > secretNumber ? '✈ Too high!' : '⚓ Too Low!');
+      if (translation == false) {
+        displayMessage(guess > secretNumber ? '✈ Too high!' : '⚓ Too Low!');
+      } else {
+        displayMessage(
+          guess > secretNumber ? '✈ Muito alto!' : '⚓ Muito baixo!'
+        );
+      }
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -55,7 +62,12 @@ document.querySelector('.check').addEventListener('click', function () {
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  displayMessage('Start guessing...');
+  if (translation == false) {
+    displayMessage('Start guessing...');
+  } else {
+    displayMessage('Comece a adivinhar');
+  }
+
   document.querySelector('.score').textContent = score;
   document.querySelector('.guess').value = '';
   document.querySelector('.number').textContent = '?';
@@ -67,4 +79,5 @@ document.querySelector('.language-img').addEventListener('click', function () {
   document.querySelector('.between').textContent = 'Entre 1 a 20';
   document.querySelector('.again').textContent = 'De Novo!';
   document.querySelector('.message').textContent = 'Comece a adivinhar...';
+  translation = true;
 });
