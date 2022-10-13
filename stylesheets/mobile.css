@@ -1,0 +1,61 @@
+@media (max-width: 660px) {
+  main {
+    height: 60vh;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 2rem 2rem;
+  }
+
+  .between {
+    padding-top: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .number {
+    font-size: 3rem;
+  }
+  .right {
+    padding: 0 5rem;
+    display: grid;
+    grid-template-areas: 'one one one' 'two three four';
+    grid-template-rows: 50px 50px;
+    position: absolute;
+    top: 85%;
+    min-width: 35rem;
+    font-size: 0.8rem;
+    justify-items: center;
+  }
+
+  .language-img {
+    background-image: url(../images/bandeiragrande.jpg);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    padding: 1.5rem 2.5rem;
+    font-size: 0.5rem;
+    right: 40%;
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+.text-info:nth-child(1) {
+  grid-area: one;
+}
+
+.text-info:nth-child(2) {
+  grid-area: two;
+}
+
+.text-info:nth-child(3) {
+  grid-area: three;
+}
+
+.text-info:nth-child(4) {
+  grid-area: four;
+}

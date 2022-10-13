@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./stylesheets/desktop.css" />
+    <link rel="stylesheet" href="./stylesheets/mobile.css">
+    <title>Guess My Number!</title>
+  </head>
+  <body>
+    <header>
+      <button class="btn language-img"></button>
+      <!-- <img  class='language-img' src="./images/" alt=""> -->
+      <h1>Guess My Number!</h1>
+      <p class="between">(Between 1 and 20)</p>
+      <button class="btn again">Again!</button>
+      <div class="number">?</div>
+    </header>
+    <main>
+      <section class="left">
+        <input type="number" class="guess" />
+        <button class="btn check">Check!</button>
+      </section>
+      <section class="right">
+        <div class="text-info one">
+          <p class="message">Start guessing...</p>
+        </div class="text-info two">
+        <div>
+          <p class="label-score">💯 Score: <span class="score">20</span></p>
+        </div>
+        <div class = "text-info three">
+          <p class="label-highscore">
+            🥇 Highscore: <span class="highscore">0</span>
+          </p>
+        </div>
+        <div class="text-info four">
+          <p class="label-totalScore">
+            🏆 Total: <span class="totalScore">0 </span>
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="./scripts/forma-curta.js"></script>
+  </body>
+</html>
